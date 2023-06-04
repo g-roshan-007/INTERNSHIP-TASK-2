@@ -1,0 +1,771 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alata&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Outfit', 'Alata', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+
+        body {
+            background-color: rgb(18, 0, 24);
+            color: white;
+            scroll-behavior: smooth;
+        }
+
+        .bgvideo {
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            z-index: -1;
+            opacity: 0.5;
+            width: 1920px;
+            height: 1080px
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            height: 8vh;
+            background-color: rgb(0, 6, 76);
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: center;
+        }
+
+        nav ul li {
+            list-style: none;
+            margin: 0 23px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: white;
+        }
+
+        nav ul li a:hover {
+            background-color: white;
+            color: rgb(0, 0, 0);
+            border-radius: 15px;
+            padding: 6px;
+        }
+
+        .leftNav {
+            font-size: 1.3rem;
+            cursor: pointer;
+        }
+
+        .Home {
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            flex-wrap: wrap;
+            margin: 50px 0;
+            height: 80vh;
+        }
+
+        .Home>div {
+            width: 30%;
+        }
+
+        .leftHome {
+            margin: 70px 0;
+            font-size: 2.8rem;
+        }
+        
+
+        #element{
+            font-size: 3.2rem;
+            color: rgb(140, 165, 255);
+        }
+
+        .myname{
+            font-size: 3.3rem;
+            letter-spacing: 2px;
+            color: rgb(224, 187, 142);
+        }
+
+        .rightHome img {
+            
+            margin-top: 5%;
+            scale: 100%;
+            position: relative;
+            right: 5%;
+            flex: 1;
+            
+
+
+        }
+
+        @media (max-width: 600px) {
+            .Home {
+
+                flex-direction: column-reverse;
+                justify-content: center;
+                align-items: center;
+            }
+
+            .leftHome,
+            .rightHome {
+                flex: none;
+            }
+        }
+
+        .education {
+            display: grid;
+            grid-template-rows: repeat(auto-fit, minmax(0px, 1fr));
+            gap: 20px;
+            justify-items: center;
+            align-items: center;
+            margin: 20px 200px;
+        }
+
+        .ed {
+            font-size: 2.15rem;
+            text-align: center;
+        }
+
+        .education-card {
+            width: 100%;
+            background-color: rgb(0, 6, 76);
+            padding: 20px;
+            border-radius: 5px;
+        }
+
+        .education-card:hover {
+            background-color: rgb(12, 1, 135);
+            transform: scale(1.03);
+        }
+
+        .education-card h3 {
+            color: white;
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        .education-card p {
+            color: white;
+            margin-bottom: 10px;
+        }
+
+        .education-card .progress-bar {
+            height: 20px;
+            background-color: rgba(255, 255, 255, 0.95);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .education-card .progress-bar span {
+            display: block;
+            height: 100%;
+
+        }
+
+        .education-card .progress-bar .progress-fill {
+            background-color: #ff0000;
+        }
+
+        @media (max-width: 800px) {
+            .education-card {
+                width: 80%;
+            }
+
+            .education {
+                justify-content: center;
+                align-items: center;
+                text-align: center;
+                margin: 20px 80px;
+
+            }
+
+            .ed {
+                font-size: 1.2rem;
+            }
+        }
+
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            margin: 20px 100px;
+        }
+
+        .skill-card {
+            width: 400px;
+            background-color: rgb(69, 20, 35);
+            padding: 20px;
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin: 20px;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        .skill-card:hover {
+            background-color: rgb(105, 45, 67);
+            transform: scale(1.05);
+        }
+
+        .skill-card .skill-details {
+            flex-grow: 1;
+        }
+
+        .skill-card h3 {
+            color: white;
+            font-size: 1.5rem;
+            margin-bottom: 8px;
+        }
+
+        .skill-card p {
+            color: white;
+            margin-bottom: 10px;
+        }
+
+        .skill-card img {
+            max-width: 100%;
+            height: auto;
+            width: 130px;
+        }
+
+        @media (max-width: 800px) {
+            .skill-card {
+                flex-direction: column;
+                text-align: center;
+                width: 60%;
+            }
+
+            .skills {
+                justify-content: center;
+                align-items: center;
+                margin: 20px 80px;
+            }
+        }
+
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 20px;
+            margin: 20px;
+        }
+
+        @media (max-width: 800px) {
+            .gallery {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+
+        .gallery-item {
+            flex: 0 0 calc(33.33% - 20px);
+            position: relative;
+            overflow: hidden;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 90%;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.05);
+        }
+
+        .gallery-item .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 6, 76, 0.8);
+            opacity: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: opacity 0.3s ease-in-out;
+        }
+
+        .gallery-item:hover .overlay {
+            opacity: 1;
+        }
+
+        .gallery-item .overlay-content {
+            text-align: center;
+        }
+
+        .gallery-item h3 {
+            font-size: 1.5rem;
+            margin-bottom: 8px;
+        }
+
+        .gallery-item p {
+            margin-bottom: 10px;
+        }
+
+        .projects {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .project-card {
+            width: 100%;
+            max-width: 300px;
+            margin: 20px;
+            padding: 20px;
+            background-color: rgb(0, 58, 69);
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+
+        .project-card:hover {
+            transform: scale(1.05);
+            background-color: rgb(0, 143, 131);
+        }
+
+        .project-card img {
+            width: 100%;
+            height: auto;
+            margin-bottom: 10px;
+        }
+
+        .project-card h3 {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .project-card p {
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+
+        .project-button {
+            display: inline-block;
+            padding: 8px 16px;
+            background-color: #752257;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 4px;
+        }
+
+        .project-button:hover {
+            background-color: #ff0000;
+        }
+
+        @media (min-width: 576px) {
+            .project-card {
+                max-width: 400px;
+            }
+        }
+
+        @media (min-width: 768px) {
+            .project-card {
+                max-width: 500px;
+            }
+        }
+
+        @media (min-width: 992px) {
+            .project-card {
+                max-width: 600px;
+            }
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 1.2rem;
+            margin-bottom: 5px;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            font-size: 1rem;
+            border-radius: 5px;
+            border: none;
+            background-color: rgb(83, 41, 128);
+            color: white;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 1rem;
+            border-radius: 5px;
+            border: none;
+            background-color: rgb(56, 92, 66);
+            color: white;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: rgb(101, 153, 130);
+        }
+
+        .footer {
+            background-color: #040011;
+            padding: 10px;
+            text-align: center;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        .footer a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .footer p {
+            margin-bottom: 3px;
+
+        }
+
+        .footer p:last-child {
+            margin-bottom: 0;
+        }
+
+        @media (max-width: 768px) {
+            .footer {
+                padding: 20px 10px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <video autoplay loop muted plays-inline class="bgvideo" id="bgvideo">
+        <source src="" type="video/mp4">
+    </video>
+    <header id="home">
+        <nav>
+            <div class="leftNav">Roshan's Portfolio</div>
+            <div class="rightNav">
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#education">Education</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#certifications">Certifications</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="Home" id="home">
+            <div class="leftHome">
+                Hello! I'am <br><span class="myname" id="elementname">Roshan</span>
+                <div>& I'm a Passionate</div>
+                <span id="element"></span>
+            </div>
+            <div class="rightHome">
+                <img src="Picsart_23-06-04_02-18-41-065.png" alt="">
+
+            </div>
+        </section>
+
+        <section class="education" id="education">
+            <div class="ed">
+                <h1>Education Detials</h1>
+            </div>
+            <div class="education-card">
+                <h3>High School</h3>
+                <p>Bhashyam High School</p>
+                <p style="font-style: italic; font-size: small;">Bommuru, Rajahmundry</p>
+                <p>2015-2019</p>
+                <p>Secured 100%</p>
+                <div class="progress-bar">
+                    <span class="progress-fill" style="width: 100%"></span>
+                </div>
+            </div>
+            <div class="education-card">
+                <h3>Intermediate</h3>
+                <p>Bhashyam Jr. College</p>
+                <p style="font-style: italic; font-size: small;">Prakash Nagar, Rajahmundry</p>
+                <p>2019-2021</p>
+                <p>Secured 96.4%</p>
+                <div class="progress-bar">
+                    <span class="progress-fill" style="width: 96%"></span>
+                </div>
+            </div>
+            <div class="education-card">
+                <h3>Engineering</h3>
+                <p>Vishnu Institute Of Technology</p>
+                <p style="font-style: italic; font-size: small;">Kovvada, Bhimavaram</p>
+                <p>2021-2025</p>
+                <p>Currently 90.8%</p>
+                <div class="progress-bar">
+                    <span class="progress-fill" style="width: 90%"></span>
+                </div>
+            </div>
+        </section>
+        <h1 style="text-align: center; margin-top: 20px; font-size: 3.15rem;">My Skills</h1>
+        <section class="skills" id="skills">
+            <div class="skill-card">
+                <div class="skill-details">
+                    <h3>HTML</h3>
+                    <p>HyperText Markup Language</p>
+                </div>
+                <img src="html-icon.png" alt="HTML">
+            </div>
+            <div class="skill-card">
+                <div class="skill-details">
+                    <h3>CSS</h3>
+                    <p>Cascading Style Sheets</p>
+                </div>
+                <img src="css-icon.png" alt="CSS">
+            </div>
+            <div class="skill-card">
+                <div class="skill-details">
+                    <h3>JavaScript</h3>
+                    <p>Client-side scripting language</p>
+                </div>
+                <img src="js-icon copy.png" alt="JavaScript">
+            </div>
+            <div class="skill-card">
+                <div class="skill-details">
+                    <h3>Java</h3>
+                    <p>Client-side scripting language</p>
+                </div>
+                <img src="java-icon.png" alt="Java">
+            </div>
+            <div class="skill-card">
+                <div class="skill-details">
+                    <h3>#C</h3>
+                    <p>Client-side scripting language</p>
+                </div>
+                <img src="c-icon.png" alt="C">
+            </div>
+            <div class="skill-card">
+                <div class="skill-details">
+                    <h3>Python</h3>
+                    <p>Client-side scripting language</p>
+                </div>
+                <img src="py-icon.png" alt="Python">
+            </div>
+            <div class="skill-card">
+                <div class="skill-details">
+                    <h3>SQL</h3>
+                    <p>Client-side scripting language</p>
+                </div>
+                <img src="sql-icon.png" alt="Data Science">
+            </div>
+            <div class="skill-card">
+                <div class="skill-details">
+                    <h3>Adobe Photoshop</h3>
+                    <p>Image editing software</p>
+                </div>
+                <img src="ps-icon.png" alt="Adobe Photoshop">
+            </div>
+            <div class="skill-card">
+                <div class="skill-details">
+                    <h3>Adobe Premiere Pro</h3>
+                    <p>Video editing software</p>
+                </div>
+                <img src="pr-icon.png" alt="Adobe Premiere Pro">
+            </div>
+            <div class="skill-card">
+                <div class="skill-details">
+                    <h3>After Effects</h3>
+                    <p>Visual effects and motion graphics software</p>
+                </div>
+                <img src="ae-icon.png" alt="After Effects">
+            </div>
+        </section>
+
+        <section id="certifications">
+            <h1 style="text-align: center; margin-top: 20px; margin-bottom: 40px; font-size: 3.15rem;">My Certifications
+            </h1>
+            <div class="gallery">
+                <div class="gallery-item">
+                    <img src="CSS DevTown.jpeg" alt="Image 1">
+                    <div class="overlay">
+                        <div class="overlay-content">
+                            <h3>DevTown Certification</h3>
+                            <p>Certification for completing css.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="Web capture_24-5-2023_121834_.jpeg" alt="Image 2">
+                    <div class="overlay">
+                        <div class="overlay-content">
+                            <h3>AWS Certification</h3>
+                            <p>Certification for completing Cloud Computing.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="Web capture_24-5-2023_122017_.jpeg" alt="Image 3">
+                    <div class="overlay">
+                        <div class="overlay-content">
+                            <h3>CISCO Certification</h3>
+                            <p>Certification for completing Intro to CyberSecurity</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="CSS DevTown.jpeg" alt="Image 1">
+                    <div class="overlay">
+                        <div class="overlay-content">
+                            <h3>Image 1</h3>
+                            <p>Description of Image 1</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="gallery-item">  
+                    <img src="Web capture_24-5-2023_121834_.jpeg" alt="Image 2">
+                    <div class="overlay">
+                        <div class="overlay-content">
+                            <h3>Image 2</h3>
+                            <p>Description of Image 2</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="Web capture_24-5-2023_122017_.jpeg" alt="Image 3">
+                    <div class="overlay">
+                        <div class="overlay-content">
+                            <h3>Image 3</h3>
+                            <p>Description of Image 3</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Add more gallery items as needed -->
+            </div>
+
+        </section>
+
+        <h1 style="text-align: center; margin-top: 20px; margin-bottom: 30px; font-size: 3.15rem;">Projects</h1>
+        <section class="projects" id="projects">
+            <div class="project-card">
+                <h3>Basic Arithmetic Calculator</h3>
+                <p>Arithmetic Calculator with basic operations.</p>
+                <a href="calci.html" class="project-button" target="_blank">Go to Project</a>
+            </div>
+
+            <div class="project-card">
+                <h3>Temperature Converter </h3>
+                <p>Conversion from Fahrenheit to Celsius or Kelvin or vice versa</p>
+                <a href="#" class="project-button">Go to Project</a>
+            </div>
+
+            <div class="project-card">
+                <h3>Login Page 1</h3>
+                <p>Simple Responsive Login Page </p>
+                <a href="#" class="project-button">Go to Project</a>
+            </div>
+
+            <div class="project-card">
+                <h3>Login Page 2</h3>
+                <p>Simple Responsive Login Page Design</p>
+                <a href="#" class="project-button">Go to Project</a>
+            </div>
+
+            <div class="project-card">
+                <h3>Image Gallery</h3>
+                <p>A responsive Image Gallery</p>
+                <a href="#" class="project-button">Go to Project</a>
+            </div>
+
+            <div class="project-card">
+                <h3>Landing Page of Music Website. </h3>
+                <p>Basic landing page of musical website</p>
+                <a href="#" class="project-button">Go to Project</a>
+            </div>
+
+            <!-- Add more project cards as needed -->
+
+        </section>
+        <section id="contact">
+            <div class="container">
+                <h1 style="font-size: 3.15rem; text-align: center;">Contact Me</h1>
+                <form>
+                    <div class="form-group">
+                        <label for="name">Name:</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message:</label>
+                        <textarea id="message" name="message" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="btn">Submit</button>
+                </form>
+
+            </div>
+        </section>
+
+    </main>
+    <footer class="footer">
+        <p>Connect with me on:</p>
+        <p>Email: smart.007roshan@gmail.com</p>
+        <p>Phone: +91 8142093177</p>
+        <p>Address: Rajahmundry, India</p>
+        <p>&copy; 2023 Roshan. All rights reserved.</p>
+    </footer>
+    <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
+    <script>
+        var typed = new Typed('#element', {
+            strings: ['Digital Editor',  'Graphic Designer','Web Developer' ],
+            typeSpeed: 50,
+        });
+        var typed = new Typed('#elementname', {
+            strings: ['ROSHAN'],
+            typeSpeed: 220,
+        });
+
+    </script>
+
+</body>
+
+</html>
